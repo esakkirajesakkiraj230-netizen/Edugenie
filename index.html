@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EduGenie - Gemini powered learning assistant" />
+  <title>EduGenie — Learning Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">E</div>
+        <div>
+          <div class="brand-name">EduGenie</div>
+          <div class="brand-sub">AI Learning Assistant</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" data-view="home">⌂ <span>Dashboard</span></button>
+        <button class="nav-item" data-view="tutor">✦ <span>AI Tutor</span></button>
+        <button class="nav-item" data-view="explain">◈ <span>Explain Topic</span></button>
+        <button class="nav-item" data-view="quiz">✓ <span>Practice Quiz</span></button>
+        <button class="nav-item" data-view="summarize">≡ <span>Summarize Notes</span></button>
+        <button class="nav-item" data-view="plan">◷ <span>Study Planner</span></button>
+      </nav>
+
+      <div class="sidebar-card">
+        <div class="sparkle">✦</div>
+        <strong>Learn smarter</strong>
+        <p>Ask questions, practice concepts, and build better study habits.</p>
+      </div>
+
+      <div class="sidebar-footer">Powered by Google Gemini</div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu">☰</button>
+        <div>
+          <div class="eyebrow">YOUR PERSONAL STUDY SPACE</div>
+          <h1 id="pageTitle">Good to see you 👋</h1>
+        </div>
+        <div class="status" id="status"><span></span> AI ready</div>
+      </header>
+
+      <section id="home" class="view active-view">
+        <div class="hero">
+          <div>
+            <span class="pill">✦ Gemini-powered</span>
+            <h2>What do you want to<br><em>learn today?</em></h2>
+            <p>Turn difficult topics into simple explanations, practice questions, summaries, and focused study plans.</p>
+            <button class="primary-btn" data-view="tutor">Start learning →</button>
+          </div>
+          <div class="hero-orbit">
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="genie-core">✦</div>
+          </div>
+        </div>
+
+        <div class="section-heading">
+          <div><h3>Learning tools</h3><p>Choose a tool and get started.</p></div>
+        </div>
+
+        <div class="tool-grid">
+          <button class="tool-card" data-view="tutor"><div class="tool-icon purple">✦</div><strong>AI Tutor</strong><span>Ask anything and learn step-by-step.</span><b>Open →</b></button>
+          <button class="tool-card" data-view="explain"><div class="tool-icon blue">◈</div><strong>Explain Topic</strong><span>Make any concept easier to understand.</span><b>Open →</b></button>
+          <button class="tool-card" data-view="quiz"><div class="tool-icon green">✓</div><strong>Practice Quiz</strong><span>Generate questions and test yourself.</span><b>Open →</b></button>
+          <button class="tool-card" data-view="summarize"><div class="tool-icon orange">≡</div><strong>Summarize Notes</strong><span>Turn long notes into useful revision points.</span><b>Open →</b></button>
+          <button class="tool-card" data-view="plan"><div class="tool-icon pink">◷</div><strong>Study Planner</strong><span>Create a realistic plan for your goal.</span><b>Open →</b></button>
+        </div>
+
+        <div class="tip"><span>💡</span><div><strong>Study tip</strong><p>After learning a concept, try explaining it in your own words. Retrieval practice helps you check what you really understand.</p></div></div>
+      </section>
+
+      <section id="tutor" class="view">
+        <div class="page-intro"><span class="pill">AI Tutor</span><h2>Your questions, explained clearly.</h2><p>Ask a homework question, request an example, or ask EduGenie to teach a concept.</p></div>
+        <div class="panel chat-panel">
+          <div class="chat-messages" id="chatMessages">
+            <div class="message assistant"><div class="avatar">E</div><div class="bubble"><strong>EduGenie</strong><p>Hi! I'm ready to help you learn. What are you studying?</p></div></div>
+          </div>
+          <div class="quick-prompts">
+            <button>Explain photosynthesis simply</button>
+            <button>Help me understand quadratic equations</button>
+            <button>Give me a study example</button>
+          </div>
+          <form id="chatForm" class="chat-form">
+            <select id="chatLevel" aria-label="Learning level"><option value="beginner">Beginner</option><option value="intermediate" selected>Intermediate</option><option value="advanced">Advanced</option></select>
+            <input id="chatInput" placeholder="Ask EduGenie anything..." autocomplete="off" />
+            <button class="primary-btn" type="submit">Send ↑</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="explain" class="view">
+        <div class="page-intro"><span class="pill">Explain Topic</span><h2>Make difficult ideas feel simple.</h2><p>Choose a level and let EduGenie build an easy-to-follow explanation.</p></div>
+        <div class="two-col">
+          <div class="panel form-panel">
+            <label>Topic</label>
+            <input id="explainTopic" placeholder="e.g. Newton's laws of motion" />
+            <label>Level</label>
+            <select id="explainLevel"><option value="beginner">Beginner</option><option value="intermediate" selected>Intermediate</option><option value="advanced">Advanced</option></select>
+            <button id="explainBtn" class="primary-btn full">Explain with AI ✦</button>
+          </div>
+          <div class="panel output-panel"><div class="empty-state" id="explainOutput"><span>◈</span><h3>Your explanation will appear here</h3><p>Enter a topic to get a structured lesson.</p></div></div>
+        </div>
+      </section>
+
+      <section id="quiz" class="view">
+        <div class="page-intro"><span class="pill">Practice Quiz</span><h2>Learn it. Test it. Remember it.</h2><p>Generate a multiple-choice quiz for any subject.</p></div>
+        <div class="panel form-panel quiz-settings">
+          <div><label>Topic</label><input id="quizTopic" placeholder="e.g. Indian geography" /></div>
+          <div><label>Questions</label><select id="quizCount"><option>5</option><option>7</option><option>10</option></select></div>
+          <div><label>Difficulty</label><select id="quizDifficulty"><option>easy</option><option selected>medium</option><option>hard</option></select></div>
+          <button id="quizBtn" class="primary-btn">Generate quiz ✦</button>
+        </div>
+        <div id="quizOutput" class="quiz-output"></div>
+      </section>
+
+      <section id="summarize" class="view">
+        <div class="page-intro"><span class="pill">Summarize Notes</span><h2>From notes to revision-ready.</h2><p>Paste your notes and get the important ideas, terms, and recall questions.</p></div>
+        <div class="two-col">
+          <div class="panel form-panel"><label>Your notes</label><textarea id="notesInput" placeholder="Paste your class notes here..."></textarea><button id="summarizeBtn" class="primary-btn full">Summarize notes ✦</button></div>
+          <div class="panel output-panel"><div class="empty-state" id="summaryOutput"><span>≡</span><h3>Your summary will appear here</h3><p>Paste notes on the left to begin.</p></div></div>
+        </div>
+      </section>
+
+      <section id="plan" class="view">
+        <div class="page-intro"><span class="pill">Study Planner</span><h2>Build a plan you can actually follow.</h2><p>Tell EduGenie your goal and available time.</p></div>
+        <div class="two-col">
+          <div class="panel form-panel">
+            <label>Subject</label><input id="planSubject" placeholder="e.g. Mathematics" />
+            <label>Goal</label><input id="planGoal" placeholder="e.g. Prepare for my next test" />
+            <div class="mini-grid"><div><label>Days</label><input id="planDays" type="number" min="1" max="30" value="7" /></div><div><label>Minutes/day</label><input id="planMinutes" type="number" min="15" max="180" value="45" /></div></div>
+            <button id="planBtn" class="primary-btn full">Create study plan ✦</button>
+          </div>
+          <div class="panel output-panel"><div class="empty-state" id="planOutput"><span>◷</span><h3>Your study plan will appear here</h3><p>Set a goal and let EduGenie organize your time.</p></div></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
